@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <title>كويز الحب ومعلقة الذكريات لسما قلبي 💘</title>
+
+  <!-- Google Fonts: Cairo, Tajawal, Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            twilight: {
+              950: '#0a0512',
+              900: '#11081f',
+              850: '#180c2a',
+              800: '#221138',
+              700: '#331852',
+            },
+            ruby: {
+              400: '#ff4d7e',
+              500: '#ff2462',
+              600: '#e10d48',
+              700: '#b80436',
+              800: '#8f042a',
+            },
+            gold: {
+              300: '#fae19c',
+              400: '#f5cd68',
+              500: '#eab338',
+              600: '#c8921f',
+            },
+            amethyst: {
+              400: '#c084fc',
+              500: '#a855f7',
+              600: '#9333ea',
+              700: '#7e22ce',
+            }
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            tajawal: ['Tajawal', 'sans-serif'],
+            amiri: ['Amiri', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --sal: env(safe-area-inset-left, 0px);
+      --sar: env(safe-area-inset-right, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      font-family: 'Tajawal', 'Cairo', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-color: #0c0616;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 36, 98, 0.16) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(234, 179, 56, 0.12) 0%, transparent 45%),
+        linear-gradient(180deg, #0a0512 0%, #130922 45%, #1a0b2d 100%);
+      background-attachment: fixed;
+      color: #f8fafc;
+      padding-top: calc(72px + var(--sat));
+      padding-bottom: calc(28px + var(--sab));
+      padding-left: max(12px, var(--sal));
+      padding-right: max(12px, var(--sar));
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Stardust & Glowing Orbs */
+    .stardust-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star-sparkle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffffff 0%, rgba(255, 200, 220, 0.8) 50%, transparent 100%);
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; transform: scale(0.6); }
+      50% { opacity: 0.85; transform: scale(1.3); }
+    }
+
+    .floating-petal {
+      position: absolute;
+      bottom: -60px;
+      opacity: 0.45;
+      animation: floatPetal linear infinite;
+      filter: drop-shadow(0 2px 8px rgba(255, 36, 98, 0.35));
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatPetal {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.65);
+        opacity: 0;
+      }
+      15% { opacity: 0.55; }
+      85% { opacity: 0.55; }
+      100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    /* Card Glow & Glassmorphism */
+    .velvet-card {
+      background: rgba(23, 12, 36, 0.76);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1.5px solid rgba(255, 180, 210, 0.18);
+      box-shadow: 
+        0 24px 60px -12px rgba(0, 0, 0, 0.75),
+        0 0 35px rgba(255, 36, 98, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+    }
+
+    /* Card entrance animation */
+    @keyframes cardAppear {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .card-animated {
+      animation: cardAppear 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    /* Sound waves */
+    .wave-bar {
+      width: 2.5px;
+      background: #ff4d7e;
+      border-radius: 99px;
+      height: 3px;
+      transition: height 0.2s ease;
+    }
+
+    .wave-bar.playing:nth-child(1) { animation: wave 0.8s infinite ease-in-out alternate; }
+    .wave-bar.playing:nth-child(2) { animation: wave 1.1s infinite ease-in-out 0.2s alternate; }
+    .wave-bar.playing:nth-child(3) { animation: wave 0.9s infinite ease-in-out 0.4s alternate; }
+
+    @keyframes wave {
+      0% { height: 3px; }
+      100% { height: 13px; }
+    }
+
+    /* Escaping Arena */
+    .escaping-zone {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      background: rgba(14, 7, 24, 0.6);
+      border: 2px dashed rgba(255, 77, 126, 0.35);
+      border-radius: 24px;
+      margin-top: 14px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    .runaway-btn {
+      position: absolute;
+      background: rgba(35, 18, 52, 0.9);
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      cursor: pointer;
+      font-weight: 800;
+      transition: left 0.18s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 0.18s cubic-bezier(0.18, 0.89, 0.32, 1.28), transform 0.18s ease;
+      z-index: 10;
+      user-select: none;
+      touch-action: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Option States */
+    .option-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      color: #f1ebf5;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .option-btn:not(.disabled):hover {
+        border-color: rgba(255, 77, 126, 0.65);
+        background: rgba(255, 36, 98, 0.08);
+        transform: translateX(-3px);
+      }
+    }
+
+    .option-btn.correct {
+      border-color: #10b981 !important;
+      background: rgba(16, 185, 129, 0.18) !important;
+      color: #6ee7b7 !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3) !important;
+    }
+
+    .option-btn.correct .option-bullet {
+      background: #10b981 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+    }
+
+    .option-btn.incorrect {
+      border-color: #ef4444 !important;
+      background: rgba(239, 68, 68, 0.18) !important;
+      color: #fca5a5 !important;
+      animation: gentleShake 0.4s ease;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.3) !important;
+    }
+
+    .option-btn.incorrect .option-bullet {
+      background: #ef4444 !important;
+      color: #ffffff !important;
+    }
+
+    .option-btn.disabled {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .option-btn.disabled.correct {
+      opacity: 1;
+    }
+
+    @keyframes gentleShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    /* Score Ring animation */
+    .score-circle-fill {
+      fill: none;
+      stroke: url(#scoreGradient);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 314.16;
+      stroke-dashoffset: 314.16;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: drop-shadow(0 0 8px rgba(255, 36, 98, 0.6));
+    }
+
+    /* Poetry font styling */
+    .poetry-font {
+      font-family: 'Amiri', serif;
+    }
+
+    /* Click heart explosion */
+    .click-heart {
+      position: fixed;
+      pointer-events: none;
+      font-size: 22px;
+      animation: explodeFade 0.9s forwards ease-out;
+      z-index: 10001;
+    }
+
+    @keyframes explodeFade {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.6);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1.35);
+      }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-start">
+
+  <!-- Ambient Stardust & Glowing Orbs Background -->
+  <div class="stardust-bg" id="stardust-bg"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-[9998]"></canvas>
+
+  <!-- SVG Gradient Definition -->
+  <svg width="0" height="0" class="absolute">
+    <defs>
+      <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ff4d7e" />
+        <stop offset="50%" stop-color="#c084fc" />
+        <stop offset="100%" stop-color="#f5cd68" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Fixed Top Velvet Capsule Bar -->
+  <header class="fixed top-0 left-0 right-0 z-[100] pointer-events-none py-2 px-3 bg-twilight-950/70 backdrop-blur-xl border-b border-white/10 shadow-lg">
+    <div class="max-w-[520px] mx-auto flex items-center justify-between gap-1.5 pointer-events-auto">
+      
+      <!-- Music Pill (Amr Diab: Tamally Maak) -->
+      <button id="musicToggleBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-twilight-900/90 border border-ruby-500/30 shadow-xs text-xs font-bold text-ruby-400 hover:bg-twilight-800 transition active:scale-95 truncate max-w-[190px]" title="تشغيل / كتم أغنية عمرو دياب (تملي معاك)">
+        <i data-lucide="music" class="w-3.5 h-3.5 text-ruby-400 shrink-0"></i>
+        <span id="musicStatusText" class="truncate">عمرو دياب: تملي معاك</span>
+        <div class="music-waves flex items-center gap-[2.5px] h-[13px] shrink-0">
+          <div class="wave-bar playing"></div>
+          <div class="wave-bar playing"></div>
+          <div class="wave-bar playing"></div>
+        </div>
+      </button>
+
+      <!-- Live Quiz Score Pill -->
+      <div id="scorePill" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-twilight-900/90 border border-gold-500/40 shadow-xs text-xs font-black text-gold-300 shrink-0">
+        <i data-lucide="star" class="w-3.5 h-3.5 fill-gold-400 text-gold-400"></i>
+        <span id="scoreText">النقاط: 0</span>
+      </div>
+
+      <!-- Couple Name Tag -->
+      <div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-twilight-900/90 border border-amethyst-500/30 shadow-xs text-xs font-black text-amethyst-300 shrink-0">
+        <span>حمودي</span>
+        <i data-lucide="heart" class="w-3 h-3 fill-ruby-500 text-ruby-500"></i>
+        <span>سما</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Floating Toast Message -->
+  <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 -translate-y-24 bg-twilight-900/95 text-white px-5 py-2.5 rounded-full shadow-2xl border-2 border-ruby-500 font-extrabold text-sm z-[10000] opacity-0 transition-all duration-300 flex items-center gap-2 pointer-events-none whitespace-nowrap shadow-ruby-500/30">
+    <span id="toast-icon">✨</span>
+    <span id="toast-text">رسالة</span>
+  </div>
+
+  <!-- Teasing Modal -->
+  <div id="modalOverlay" class="fixed inset-0 bg-black/75 backdrop-blur-md flex items-center justify-center z-[9999] opacity-0 pointer-events-none transition-opacity duration-200 p-4">
+    <div class="bg-twilight-900/95 border border-ruby-500/40 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl transform scale-90 transition-transform duration-200 text-white">
+      <span id="modalEmoji" class="text-5xl block mb-2 animate-bounce">🤨</span>
+      <div id="modalTitle" class="text-xl font-black text-ruby-400 mb-2">تنبيه يا سمسومة!</div>
+      <div id="modalBody" class="text-sm font-semibold text-slate-300 leading-relaxed mb-5">ممنوع تختاري ده يا قمر!</div>
+      <button id="modalCloseBtn" class="w-full py-3 px-6 rounded-full bg-gradient-to-r from-ruby-500 to-ruby-700 text-white font-bold text-sm shadow-lg shadow-ruby-600/30 hover:opacity-95 active:scale-95 transition">حاضر، هفكر تاني 😇</button>
+    </div>
+  </div>
+
+  <!-- Main Game Container -->
+  <main class="w-full max-w-[520px] mx-auto z-10 px-1">
+    <div id="gameCard" class="card-animated velvet-card p-5 sm:p-7 text-center relative overflow-hidden text-slate-100">
+      <!-- Dynamic Screen Content Rendered by JavaScript -->
+    </div>
+  </main>
+
+  <script>
+    /* ==========================================================
+       Romantic Background Music Engine
+       Primary: Amr Diab - "Tamally Maak" (Original Audio Stream)
+       Secondary: Lo-Fi Web Audio Synthesizer Pad
+       ========================================================== */
+    const TARGET_EMAIL = 'mohameedhasan81@gmail.com';
+    const AMR_DIAB_SONG_URL = 'https://archive.org/download/Album_AmrDiab_Tamally_Maak_Original_Quality/TamallyMaak.mp3';
+
+    let bgAudio = null;
+    let isMusicPlaying = false;
+    let audioCtx = null;
+    let sfxEnabled = true;
+
+    function initAmrDiabAudio() {
+      if (!bgAudio) {
+        bgAudio = new Audio(AMR_DIAB_SONG_URL);
+        bgAudio.loop = true;
+        bgAudio.volume = 0.55;
+        bgAudio.preload = 'auto';
+
+        bgAudio.addEventListener('play', () => {
+          isMusicPlaying = true;
+          updateMusicUI(true);
+        });
+
+        bgAudio.addEventListener('pause', () => {
+          isMusicPlaying = false;
+          updateMusicUI(false);
+        });
+
+        bgAudio.addEventListener('error', () => {
+          console.log('Amr Diab audio stream error, falling back to Web Audio pad.');
+          startLofiMusic();
+        });
+      }
+    }
+
+    function startMusic() {
+      initAudioContext();
+      initAmrDiabAudio();
+
+      if (bgAudio) {
+        bgAudio.play().then(() => {
+          isMusicPlaying = true;
+          updateMusicUI(true);
+        }).catch(err => {
+          console.log('Autoplay policy caught or stream issue:', err.message);
+          startLofiMusic();
+        });
+      } else {
+        startLofiMusic();
+      }
+    }
+
+    function pauseMusic() {
+      if (bgAudio && !bgAudio.paused) {
+        bgAudio.pause();
+      }
+      stopLofiMusic();
+      isMusicPlaying = false;
+      updateMusicUI(false);
+    }
+
+    function toggleMusic() {
+      if (isMusicPlaying) {
+        pauseMusic();
+        showToast('تم كتم الأغنية 🔇', '🎵');
+      } else {
+        startMusic();
+        showToast('شغّلتلك عمرو دياب "تملي معاك" يا سمسومة 🎵💖', '✨');
+      }
+    }
+
+    function updateMusicUI(playing) {
+      const statusText = document.getElementById('musicStatusText');
+      const waveBars = document.querySelectorAll('.wave-bar');
+      if (playing) {
+        statusText.textContent = 'عمرو دياب: تملي معاك 💖';
+        waveBars.forEach(b => b.classList.add('playing'));
+      } else {
+        statusText.textContent = 'المزيكا مكتومة 🔇';
+        waveBars.forEach(b => b.classList.remove('playing'));
+      }
+    }
+
+    document.getElementById('musicToggleBtn').addEventListener('click', toggleMusic);
+
+    /* Web Audio Sound Effects */
+    function initAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playTone(freq, type = 'sine', duration = 0.15, gainVal = 0.1) {
+      if (!sfxEnabled) return;
+      initAudioContext();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function playSuccessSound() {
+      playTone(440, 'triangle', 0.1, 0.12);
+      setTimeout(() => playTone(554.37, 'triangle', 0.1, 0.12), 80);
+      setTimeout(() => playTone(659.25, 'triangle', 0.22, 0.13), 160);
+    }
+
+    function playBuzzerSound() {
+      playTone(200, 'sawtooth', 0.16, 0.12);
+      setTimeout(() => playTone(140, 'sawtooth', 0.22, 0.12), 90);
+    }
+
+    function playPopSound() {
+      playTone(580, 'sine', 0.08, 0.16);
+    }
+
+    function playVictoryFanfare() {
+      const notes = [523.25, 659.25, 783.99, 1046.50];
+      notes.forEach((n, idx) => {
+        setTimeout(() => playTone(n, 'triangle', 0.28, 0.14), idx * 110);
+      });
+    }
+
+    /* Fallback Procedural Chords */
+    let musicInterval = null;
+    const chords = [
+      [174.61, 220.00, 261.63, 329.63],
+      [196.00, 246.94, 293.66, 329.63],
+      [164.81, 196.00, 246.94, 293.66],
+      [220.00, 261.63, 329.63, 392.00]
+    ];
+    let chordIndex = 0;
+
+    function playWarmPad(freqs, duration = 2.4) {
+      if (!isMusicPlaying || !audioCtx) return;
+      try {
+        const now = audioCtx.currentTime;
+        freqs.forEach((freq, idx) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          const filter = audioCtx.createBiquadFilter();
+
+          osc.type = (idx % 2 === 0) ? 'sine' : 'triangle';
+          osc.frequency.setValueAtTime(freq, now);
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(750, now);
+
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.linearRampToValueAtTime(0.02, now + 0.5);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(now);
+          osc.stop(now + duration);
+        });
+      } catch (e) {}
+    }
+
+    function startLofiMusic() {
+      if (musicInterval) return;
+      isMusicPlaying = true;
+      updateMusicUI(true);
+      playWarmPad(chords[chordIndex]);
+      chordIndex = (chordIndex + 1) % chords.length;
+
+      musicInterval = setInterval(() => {
+        if (!isMusicPlaying) return;
+        playWarmPad(chords[chordIndex]);
+        chordIndex = (chordIndex + 1) % chords.length;
+      }, 2300);
+    }
+
+    function stopLofiMusic() {
+      if (musicInterval) {
+        clearInterval(musicInterval);
+        musicInterval = null;
+      }
+    }
+
+    /* Ambient Stardust & Glowing Petals Generation */
+    const bgContainer = document.getElementById('stardust-bg');
+    
+    // Sparkles
+    for (let i = 0; i < 30; i++) {
+      const star = document.createElement('div');
+      star.className = 'star-sparkle';
+      const size = Math.random() * 3 + 1.5;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      bgContainer.appendChild(star);
+    }
+
+    // Floating glowing emojis/petals
+    const ambientEmojis = ['✨', '🌸', '💫', '💖', '🕊️', '👑'];
+    for (let i = 0; i < 14; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'floating-petal';
+      petal.textContent = ambientEmojis[Math.floor(Math.random() * ambientEmojis.length)];
+      petal.style.left = `${Math.random() * 95}%`;
+      petal.style.fontSize = `${Math.random() * 14 + 14}px`;
+      petal.style.animationDuration = `${Math.random() * 8 + 8}s`;
+      petal.style.animationDelay = `${Math.random() * 6}s`;
+      bgContainer.appendChild(petal);
+    }
+
+    /* Toast */
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+    const toastIcon = document.getElementById('toast-icon');
+    let toastTimer = null;
+
+    function showToast(text, icon = '💖') {
+      toastText.textContent = text;
+      toastIcon.textContent = icon;
+      toast.classList.remove('opacity-0', '-translate-y-24');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      playPopSound();
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', '-translate-y-24');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2600);
+    }
+
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalEmoji = document.getElementById('modalEmoji');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    function openModal({ emoji = '🤨', title = 'تنبيه', message = '', btnText = 'حاضر هفكر تاني 😇', onClose = null }) {
+      playBuzzerSound();
+      modalEmoji.textContent = emoji;
+      modalTitle.textContent = title;
+      modalBody.textContent = message;
+      modalCloseBtn.textContent = btnText;
+      modalOverlay.classList.remove('opacity-0', 'pointer-events-none');
+      modalOverlay.classList.add('opacity-100');
+
+      modalCloseBtn.onclick = () => {
+        modalOverlay.classList.add('opacity-0', 'pointer-events-none');
+        modalOverlay.classList.remove('opacity-100');
+        playPopSound();
+        if (onClose) onClose();
+      };
+    }
+
+    /* Confetti & Hearts */
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const ctx = confettiCanvas.getContext('2d');
+    let confettiParticles = [];
+    let confettiAnim = null;
+
+    function resizeCanvas() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function triggerConfetti(count = 75) {
+      const palette = ['#ff4d7e', '#f5cd68', '#c084fc', '#10b981', '#38bdf8', '#fb7185'];
+      for (let i = 0; i < count; i++) {
+        confettiParticles.push({
+          x: window.innerWidth / 2 + (Math.random() - 0.5) * 120,
+          y: window.innerHeight * 0.45 + (Math.random() - 0.5) * 80,
+          vx: (Math.random() - 0.5) * 15,
+          vy: (Math.random() - 1.25) * 14,
+          size: Math.random() * 7 + 5,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          rotation: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 12,
+          opacity: 1,
+          gravity: 0.32,
+          drag: 0.96
+        });
+      }
+      if (!confettiAnim) runConfetti();
+    }
+
+    function runConfetti() {
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      for (let i = confettiParticles.length - 1; i >= 0; i--) {
+        const p = confettiParticles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.vx *= p.drag;
+        p.rotation += p.vRot;
+        p.opacity -= 0.009;
+
+        if (p.opacity <= 0 || p.y > window.innerHeight) {
+          confettiParticles.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(p.opacity, 0);
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+      }
+
+      if (confettiParticles.length > 0) {
+        confettiAnim = requestAnimationFrame(runConfetti);
+      } else {
+        confettiAnim = null;
+      }
+    }
+
+    function spawnHearts(x, y) {
+      if (!x || !y) {
+        x = window.innerWidth / 2;
+        y = window.innerHeight / 2;
+      }
+      for (let i = 0; i < 6; i++) {
+        const h = document.createElement('div');
+        h.className = 'click-heart';
+        h.textContent = ['💖', '✨', '🌸', '💫', '🥰'][Math.floor(Math.random() * 5)];
+        const tx = (Math.random() - 0.5) * 140 + 'px';
+        const ty = (Math.random() - 1) * 130 - 20 + 'px';
+        h.style.setProperty('--tx', tx);
+        h.style.setProperty('--ty', ty);
+        h.style.left = `${x}px`;
+        h.style.top = `${y}px`;
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 900);
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target.closest('#modalOverlay') || e.target.closest('#musicToggleBtn') || e.target.closest('#scorePill')) return;
+      if (Math.random() > 0.45) {
+        spawnHearts(e.clientX, e.clientY);
+      }
+    });
+
+    /* ==========================================================
+       TRIVIA QUESTIONS (EGYPTIAN ARABIC + IMRU' AL-QAYS ADAPTATIONS)
+       Concise, sweet, challenging, with close distractors!
+       ========================================================== */
+    const quizQuestions = [
+      {
+        id: 'q1_escaping',
+        type: 'escaping',
+        tag: 'سؤال الحقيقة المطلقة 👑',
+        icon: 'crown',
+        question: 'مين أكتر شخص قمر وبيحبك في الدنيا كلها؟',
+        subtitle: 'فكري كويس يا سمسومة.. الزرار التاني مِكَرٍّ مِفَرٍّ زي خيل امرؤ القيس! 🐎',
+        hamoudiText: 'حمودي طبعاً حبيب قلبي وعيني 🥰💖',
+        otherText: 'حد تاني 🙄',
+        memoryNote: 'أيوة كده! مفيش في الدنيا دي كلها حد يعشق سمسومة قد حمودي! 💖'
+      },
+      {
+        id: 'q2_first_meet',
+        type: 'choice',
+        tag: 'معلقة اللقاء الأول 🌸',
+        icon: 'calendar-heart',
+        question: 'متى كانت أول مرة اتقابلنا فيها؟',
+        subtitleEn: 'When did we first meet?',
+        subtitle: '"قِفَا نَسْتَعِدْ يَوْمَ التَّلَاقِي وَمَبْدَأَهُ".. فاكرة التاريخ بالظبط يا قمر؟ ✨',
+        options: [
+          { text: '28 فبراير 2024', dateBadge: '28/02/2024', isCorrect: false },
+          { text: '1 مارس 2024', dateBadge: '01/03/2024', isCorrect: true },
+          { text: '2 مارس 2024', dateBadge: '02/03/2024', isCorrect: false },
+          { text: '5 مارس 2024', dateBadge: '05/03/2024', isCorrect: false },
+          { text: '8 مارس 2024', dateBadge: '08/03/2024', isCorrect: false }
+        ],
+        memoryNote: '1 مارس 2024.. زي ما قال امرؤ القيس في وصف الجمال، اليوم ده شفت فيه أجمل بنت في الكون وعيني ما شافت غيرك من وقتها! 🌸💍'
+      },
+      {
+        id: 'q3_second_meet',
+        type: 'choice',
+        tag: 'معلقة اللقاء الثاني ✈️',
+        icon: 'plane',
+        question: 'متى كانت المرة الثانية اللي اتقابلنا فيها؟',
+        subtitleEn: 'When was the second time we met?',
+        subtitle: '"تَجَدَّدَ فِينَا عَهْدُ الشَّوْقِ وَاللَّهْفَةِ".. فاكرة تاريخ لقاء الشوق؟ 📅',
+        options: [
+          { text: '8 سبتمبر 2026', dateBadge: '08/09/2026', isCorrect: false },
+          { text: '10 سبتمبر 2026', dateBadge: '10/09/2026', isCorrect: false },
+          { text: '11 سبتمبر 2026', dateBadge: '11/09/2026', isCorrect: true },
+          { text: '12 سبتمبر 2026', dateBadge: '12/09/2026', isCorrect: false },
+          { text: '15 سبتمبر 2026', dateBadge: '15/09/2026', isCorrect: false }
+        ],
+        memoryNote: '11 سبتمبر 2026.. لقاء الشوق واللهفة اللي جدد كل المشاعر، ومحفور في قلبي كأنه معلقة حب أبدية! ❤️✨'
+      },
+      {
+        id: 'q4_first_iloveyou',
+        type: 'choice',
+        tag: 'اعتراف الروح 💍',
+        icon: 'sparkles',
+        question: 'أول مرة قولتيلي فيها كلمة "بحبك" بصوتك.. كانت يوم إيه؟',
+        subtitleEn: 'When did you first say "I love you"?',
+        subtitle: 'اليوم اللي اتولدت فيه من جديد وسمعت أحلى نغمة في عمري: 💌',
+        options: [
+          { text: '12 أكتوبر 2023', dateBadge: '12/10/2023', isCorrect: false },
+          { text: '15 أكتوبر 2023', dateBadge: '15/10/2023', isCorrect: false },
+          { text: '17 أكتوبر 2023', dateBadge: '17/10/2023', isCorrect: true },
+          { text: '18 أكتوبر 2023', dateBadge: '18/10/2023', isCorrect: false },
+          { text: '22 أكتوبر 2023', dateBadge: '22/10/2023', isCorrect: false }
+        ],
+        memoryNote: '17/10/2023.. اليوم اللي خلى نبضي يسبق الريح، وأول "بحبك" نورت حياتي للأبد! 💖'
+      },
+      {
+        id: 'q5_distance',
+        type: 'choice',
+        tag: 'لغز المحافظات 🕊️',
+        icon: 'map-pin',
+        question: 'المسافة الحقيقية بين محافظتي ومحافظتك أد إيه؟',
+        subtitleEn: 'What is the real distance between our hearts?',
+        subtitle: 'بحسابات القلب والعشق الصادق مش بخرائط الطريق: 🗺️',
+        options: [
+          { text: 'المسافة في الخريطة بس، إنما في القلب مفيش ولا سنتي', isCorrect: true },
+          { text: 'مسافة سفر بتتقاس بالشوق واللهفة مش بعدد الكيلومترات', isCorrect: false },
+          { text: 'مسافة وقت بتختصرها أول رنة تليفون وكلمة ألو بيننا', isCorrect: false },
+          { text: 'مسافة طريق طويل بس واثقين إن نهايته بيت واحد يجمعنا', isCorrect: false }
+        ],
+        memoryNote: 'مهما بعدت المحافظات وطال الليل، قلوبنا في نفس النبضة والخطوة يا سمسومة! 🕊️'
+      },
+      {
+        id: 'q6_journey',
+        type: 'choice',
+        tag: 'عهد العمر ⏳',
+        icon: 'infinity',
+        question: 'رحلة حبنا وسنيننا سوا.. إيه الحقيقة المؤكدة في قلوبنا؟',
+        subtitleEn: 'What is the deepest certainty of our journey?',
+        subtitle: 'العهد اللي قطعناه وماشيين بيه سوا: 💍',
+        options: [
+          { text: 'إن السنين دي أحلى سنين.. ومكملين لآخر العمر سوا', isCorrect: true },
+          { text: 'إن كل موقف وتحدي مرينا بيه كان بيقربنا لبعض أكتر', isCorrect: false },
+          { text: 'إن حنيتنا وصبرنا على بعض هي سر استمرار حبنا الحقيقي', isCorrect: false },
+          { text: 'إن مفيش في الدنيا حاجة ممكن تعوض لحظة واحدة عشناها سوا', isCorrect: false }
+        ],
+        memoryNote: 'رحلة عمرنا وابتدت ومكملين لآخر العمر وجنب بعض دايماً يا نور عيني! 💍❤️'
+      }
+    ];
+
+    /* Quiz State */
+    const totalQuestions = quizQuestions.length;
+    let currentStep = 0;
+    let userScore = 0;
+    let correctCount = 0;
+    let answersHistory = [];
+
+    function stripHtml(html) {
+      if (!html) return '';
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    const gameCard = document.getElementById('gameCard');
+    const scoreText = document.getElementById('scoreText');
+
+    function updateScoreUI() {
+      scoreText.textContent = `النقاط: ${userScore}`;
+    }
+
+    function renderProgress(qIndex) {
+      const pct = Math.round((qIndex / totalQuestions) * 100);
+      const q = quizQuestions[qIndex - 1];
+      return `
+        <div class="mb-4">
+          <div class="flex items-center justify-between text-xs font-bold text-amethyst-400 mb-1.5">
+            <span class="inline-flex items-center gap-1.5 text-ruby-400">
+              <i data-lucide="${q ? q.icon : 'heart'}" class="w-3.5 h-3.5"></i>
+              <span>${q ? q.tag : 'كويز الحب والذكريات'}</span>
+            </span>
+            <span class="text-gold-300 font-mono">السؤال ${qIndex} من ${totalQuestions}</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden p-[1px]">
+            <div class="h-full bg-gradient-to-r from-ruby-500 via-amethyst-500 to-gold-400 rounded-full transition-all duration-500 shadow-sm" style="width: ${pct}%"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function nextStep() {
+      currentStep++;
+      renderScreen();
+    }
+
+    function renderScreen() {
+      gameCard.classList.remove('card-animated');
+      void gameCard.offsetWidth;
+      gameCard.classList.add('card-animated');
+
+      if (currentStep === 0) {
+        renderIntro();
+      } else if (currentStep <= totalQuestions) {
+        const qData = quizQuestions[currentStep - 1];
+        if (qData.type === 'escaping') {
+          renderEscapingQuestion(qData);
+        } else {
+          renderChoiceQuestion(qData);
+        }
+      } else {
+        renderEndingSummary();
+      }
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    /* ----------------------------------------------------------
+       Screen 0: Intro (Egyptian Dialect + Imru' al-Qays)
+       ---------------------------------------------------------- */
+    function renderIntro() {
+      gameCard.innerHTML = `
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/5 border border-ruby-500/30 text-ruby-300 font-extrabold text-xs mb-3 shadow-inner">
+          <i data-lucide="feather" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span>مُعلّقة حب لسما قلبي 📜✨</span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-white via-rose-100 to-gold-300 bg-clip-text text-transparent leading-snug mb-2">
+          كويز الحب ومعلقة الذكريات لسما! 💘
+        </h1>
+
+        <p class="text-xs sm:text-sm font-medium text-slate-300 leading-relaxed mb-5 max-w-md mx-auto">
+          من <strong>حمودي</strong> لأجمل <strong>سمسومة</strong> في الدنيا.. 
+          قفا نضحك مش نبكي زي امرؤ القيس! 
+          3 سنين حب جمعونا وكسرنا بيهم بُعد المحافظات.. 
+          تعالي نشوف فاكرة أدق تفاصيلنا ولا امرؤ القيس هيكسبك في الذاكرة؟ 🤭👑
+        </p>
+
+        <!-- Poetic quote card -->
+        <div class="bg-gradient-to-br from-twilight-900/90 via-twilight-800/80 to-twilight-900/90 border border-gold-500/30 rounded-2xl p-4 mb-5 text-center shadow-lg relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-ruby-500/10 rounded-full blur-xl pointer-events-none"></div>
+          <div class="text-[11px] font-bold text-gold-400 mb-1 flex items-center justify-center gap-1">
+            <i data-lucide="sparkles" class="w-3 h-3 text-gold-400"></i>
+            <span>بيت من وحي العشق لسمسومة 🌸</span>
+          </div>
+          <div class="poetry-font text-base sm:text-lg font-bold text-gold-200 leading-loose">
+            "أَيَا سَمَا مَهْلاً.. فَبَعْضُ هَذَا التَّدَلُّلِ،<br/>
+            وَإِنْ كُنْتِ قَدْ عَشِقْتِ حَمُودِي فَأَجْمِلِي!"
+          </div>
+          <div class="text-[11px] font-bold text-slate-400 mt-1">3 سنين حب ومن 17/10/2023 والقلب دايب فيكي ❤️</div>
+        </div>
+
+        <button id="startQuizBtn" class="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-ruby-500 via-rose-600 to-amethyst-600 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-ruby-500/30 hover:shadow-ruby-500/50 active:scale-98 transition flex items-center justify-center gap-2 border-t border-white/30">
+          <span>يلا نبدأ يا حمودي ✨</span>
+          <i data-lucide="sparkles" class="w-4 h-4 text-gold-300"></i>
+        </button>
+      `;
+
+      document.getElementById('startQuizBtn').addEventListener('click', (e) => {
+        startMusic();
+        playSuccessSound();
+        spawnHearts(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2);
+        nextStep();
+      });
+    }
+
+    /* ----------------------------------------------------------
+       Question 1: The Escaping Button (مِكَرٍّ مِفَرٍّ)
+       ---------------------------------------------------------- */
+    function renderEscapingQuestion(qData) {
+      gameCard.innerHTML = `
+        ${renderProgress(currentStep)}
+
+        <div class="text-4xl mb-2 animate-bounce inline-block filter drop-shadow-[0_0_10px_rgba(245,205,104,0.5)]">👑</div>
+        <h1 class="text-lg sm:text-xl font-black bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent leading-snug mb-1">
+          ${qData.question}
+        </h1>
+        <p class="text-xs sm:text-sm font-semibold text-slate-400 mb-3">
+          ${qData.subtitle}
+        </p>
+
+        <div class="escaping-zone" id="escapeZone">
+          <button id="hamoudiBtn" class="z-10 py-3.5 px-6 rounded-full bg-gradient-to-r from-ruby-500 to-ruby-700 text-white font-black text-sm sm:text-base shadow-xl shadow-ruby-500/40 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2 border-t border-white/40">
+            <span>${qData.hamoudiText}</span>
+            <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+          </button>
+          
+          <button id="otherBtn" class="runaway-btn flex items-center gap-1.5">
+            <span id="otherTextSpan">${qData.otherText}</span>
+          </button>
+        </div>
+      `;
+
+      const zone = document.getElementById('escapeZone');
+      const otherBtn = document.getElementById('otherBtn');
+      const otherSpan = document.getElementById('otherTextSpan');
+      const hamoudiBtn = document.getElementById('hamoudiBtn');
+
+      otherBtn.style.top = '145px';
+      otherBtn.style.right = '28px';
+
+      const evasiveQuotes = [
+        "مِكَرٍّ مِفَرٍّ.. مش هتلحقيني! 🐎💨",
+        "أيا سما مهلاً بعض هذا التدلل! 👑",
+        "حد تاني مين يا سمسومة؟! 🤨",
+        "الزرار ده عطلان بأمر الحب! 🚫",
+        "مفيش غير حمودي في المجرة! ✨",
+        "دوسي ع البينك وانتي ساكتة يا قمر! 💖",
+        "خيل امرؤ القيس مبيقفش! ⚡"
+      ];
+      let qIdx = 0;
+
+      function escapeButton(e) {
+        if (e && e.cancelable) e.preventDefault();
+        playPopSound();
+        const zoneRect = zone.getBoundingClientRect();
+        const btnRect = otherBtn.getBoundingClientRect();
+
+        const padding = 12;
+        const maxX = Math.max(10, zoneRect.width - btnRect.width - padding);
+        const maxY = Math.max(10, zoneRect.height - btnRect.height - padding);
+
+        const newX = Math.max(padding, Math.random() * maxX);
+        const newY = Math.max(padding, Math.random() * maxY);
+
+        otherBtn.style.left = `${newX}px`;
+        otherBtn.style.top = `${newY}px`;
+        otherBtn.style.right = 'auto';
+
+        qIdx = (qIdx + 1) % evasiveQuotes.length;
+        otherSpan.textContent = evasiveQuotes[qIdx];
+
+        const rot = (Math.random() - 0.5) * 24;
+        otherBtn.style.transform = `rotate(${rot}deg) scale(0.96)`;
+      }
+
+      otherBtn.addEventListener('mouseenter', escapeButton);
+      otherBtn.addEventListener('touchstart', escapeButton, { passive: false });
+      otherBtn.addEventListener('pointerdown', escapeButton);
+
+      otherBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal({
+          emoji: '🚨',
+          title: 'محاولة تمرد فاشلة يا سمسومة!',
+          message: 'هو في في الدنيا دي كلها حد يحبك قدي أصلاً؟! الزرار ده محظور رسمياً بأمر الحب والمعلقات! 😂❤️',
+          btnText: 'خلاص فهمت.. حمودي وبس 😇'
+        });
+        escapeButton();
+      });
+
+      hamoudiBtn.addEventListener('click', (e) => {
+        playSuccessSound();
+        triggerConfetti(60);
+        spawnHearts(e.clientX, e.clientY);
+        userScore += 100;
+        correctCount += 1;
+        updateScoreUI();
+
+        answersHistory.push({
+          questionTitle: qData.question,
+          chosenText: qData.hamoudiText,
+          correctText: qData.hamoudiText,
+          isCorrect: true,
+          memoryNote: qData.memoryNote
+        });
+
+        showToast('+100 نقطة! أيوة كده خليكي شاطرة واعرفي قيمتي! 😂💖', '👑');
+        setTimeout(nextStep, 1000);
+      });
+    }
+
+    /* ----------------------------------------------------------
+       Standard Choice Question (Hard & Tricky Options)
+       ---------------------------------------------------------- */
+    function renderChoiceQuestion(qData) {
+      const letters = ['أ', 'ب', 'ج', 'د', 'هـ'];
+
+      let optionsHtml = qData.options.map((opt, idx) => `
+        <div class="option-btn group relative rounded-2xl min-h-[52px] p-3.5 text-xs sm:text-sm font-bold flex items-center justify-between gap-3 cursor-pointer transition active:scale-[0.985]" data-index="${idx}">
+          <div class="flex-1 flex items-center justify-between gap-2 text-right">
+            <span>${opt.text}</span>
+            ${opt.dateBadge ? `<span class="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-gold-300 font-bold tracking-wide" dir="ltr" style="direction:ltr;">${opt.dateBadge}</span>` : ''}
+          </div>
+          <div class="option-bullet w-7 h-7 rounded-full bg-white/10 text-amethyst-300 border border-white/15 font-black text-xs flex items-center justify-center shrink-0 transition">${letters[idx] || (idx + 1)}</div>
+        </div>
+      `).join('');
+
+      gameCard.innerHTML = `
+        ${renderProgress(currentStep)}
+
+        <h1 class="text-base sm:text-lg font-black bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent leading-snug mb-0.5">
+          ${qData.question}
+        </h1>
+        ${qData.subtitleEn ? `<div class="text-xs font-bold text-amethyst-400 dir-ltr mb-1 tracking-wide">${qData.subtitleEn}</div>` : ''}
+        <p class="text-xs font-semibold text-slate-400 mb-3">
+          ${qData.subtitle}
+        </p>
+
+        <div class="flex flex-col gap-2.5 my-2 text-right" id="optionsGrid">
+          ${optionsHtml}
+        </div>
+
+        <div id="feedbackContainer"></div>
+      `;
+
+      const optionButtons = gameCard.querySelectorAll('.option-btn');
+      let answered = false;
+
+      optionButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          if (answered) return;
+          answered = true;
+
+          const chosenIdx = parseInt(btn.getAttribute('data-index'), 10);
+          const chosenOpt = qData.options[chosenIdx];
+          const isCorrect = chosenOpt.isCorrect;
+
+          optionButtons.forEach(b => b.classList.add('disabled'));
+
+          const correctIdx = qData.options.findIndex(o => o.isCorrect);
+          const correctBtn = gameCard.querySelector(`.option-btn[data-index="${correctIdx}"]`);
+
+          if (isCorrect) {
+            btn.classList.add('correct');
+            btn.querySelector('.option-bullet').textContent = '✓';
+            playSuccessSound();
+            triggerConfetti(65);
+            spawnHearts(e.clientX, e.clientY);
+            userScore += 100;
+            correctCount += 1;
+            updateScoreUI();
+            showToast('+100 نقطة إجابة صحيحة يا روحي! 💖', '✨');
+          } else {
+            btn.classList.add('incorrect');
+            btn.querySelector('.option-bullet').textContent = '✕';
+            if (correctBtn) {
+              correctBtn.classList.add('correct');
+              correctBtn.querySelector('.option-bullet').textContent = '✓';
+            }
+            playBuzzerSound();
+            showToast('إجابة غلط.. شوفي التاريخ الصح! 🥺💔', '❌');
+          }
+
+          const formatOptStr = (o) => o.dateBadge ? `${o.text} (${o.dateBadge})` : o.text;
+          answersHistory.push({
+            questionTitle: qData.question,
+            chosenText: formatOptStr(chosenOpt),
+            correctText: formatOptStr(qData.options[correctIdx]),
+            isCorrect: isCorrect,
+            memoryNote: qData.memoryNote
+          });
+
+          const feedbackContainer = document.getElementById('feedbackContainer');
+          feedbackContainer.innerHTML = `
+            <div class="bg-twilight-900/90 border border-white/10 rounded-2xl p-3.5 mt-3 text-right shadow-lg">
+              <div class="flex items-center gap-1.5 font-bold text-xs ${isCorrect ? 'text-emerald-400' : 'text-rose-400'} mb-1">
+                <i data-lucide="${isCorrect ? 'check-circle' : 'info'}" class="w-4 h-4"></i>
+                <span>${isCorrect ? 'إجابة عبقرية يا سمسومة قلبي!' : 'معلومة الذكرى الحقيقية:'}</span>
+              </div>
+              <div class="text-xs text-slate-300 leading-relaxed mb-3">
+                ${qData.memoryNote}
+              </div>
+              <button id="nextQuestionBtn" class="w-full py-2.5 px-4 rounded-full bg-gradient-to-r from-ruby-500 to-ruby-700 text-white font-extrabold text-xs shadow-md hover:opacity-95 active:scale-98 transition flex items-center justify-center gap-1.5 border-t border-white/30">
+                <span>${currentStep < totalQuestions ? 'السؤال التالي ➡️' : 'عرض النتيجة النهائية ومعلقة الحب 🏆'}</span>
+              </button>
+            </div>
+          `;
+
+          if (window.lucide) lucide.createIcons();
+
+          document.getElementById('nextQuestionBtn').addEventListener('click', () => {
+            playPopSound();
+            nextStep();
+          });
+        });
+      });
+    }
+
+    /* ==========================================================
+       Automatic Score Email Dispatcher
+       Sends results to mohameedhasan81@gmail.com silently
+       ========================================================== */
+    async function sendScoreEmail(scoreData) {
+      const payload = {
+        email: TARGET_EMAIL,
+        score: scoreData.score,
+        totalPoints: scoreData.totalPoints,
+        percentage: scoreData.percentage,
+        rank: scoreData.rank,
+        answers: scoreData.answers,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const res = await fetch('/api/send-score', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) return true;
+      } catch (err) {
+        console.log('Local endpoint unavailable, attempting external relay...');
+      }
+
+      // External FormSubmit relay fallback
+      try {
+        await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json' 
+          },
+          body: JSON.stringify({
+            _subject: `💘 نتيجة كويز الحب لسما: ${scoreData.percentage}% (${scoreData.score} نقطة)`,
+            recipient: TARGET_EMAIL,
+            score: `${scoreData.score} / ${scoreData.totalPoints}`,
+            percentage: `${scoreData.percentage}%`,
+            rank: scoreData.rank,
+            date: new Date().toLocaleString('ar-EG'),
+            details: scoreData.answers.map(a => `${a.questionTitle}: ${a.chosenText} [${a.isCorrect ? 'صح' : 'خطأ'}]`).join(' | ')
+          })
+        });
+      } catch (e) {
+        console.log('Background score email dispatch completed.');
+      }
+    }
+
+    /* ----------------------------------------------------------
+       Final Screen: Grand Love Certificate & Imru' al-Qays Poem
+       ---------------------------------------------------------- */
+    function renderEndingSummary() {
+      playVictoryFanfare();
+      triggerConfetti(110);
+      setTimeout(() => triggerConfetti(70), 800);
+      setTimeout(() => triggerConfetti(60), 1600);
+
+      const scorePct = Math.round((correctCount / totalQuestions) * 100);
+      const totalPoints = totalQuestions * 100;
+
+      let rankTitle = 'ملكة الذكريات ومعلقة العشق 100% 👑💖';
+      let rankDesc = 'ذاكرة أسطورية وتفاصيلنا محفورة في قلبك ثانية بثانية!';
+      let rankEmoji = '👑';
+
+      if (scorePct === 100) {
+        rankTitle = 'ملكة الذكريات ومعلقة العشق 100% 👑💖';
+        rankDesc = 'حافظة كل تواريخنا ولقاءاتنا ثانية بثانية.. بحبك يا روح قلبي!';
+        rankEmoji = '👑';
+      } else if (scorePct >= 75) {
+        rankTitle = 'أميرة قلبي المتألقة بدرجة شرف 🌟🥰';
+        rankDesc = 'ذاكرة رومانسية عظيمة ومعظم التواريخ الصعبة في قلبك!';
+        rankEmoji = '🌟';
+      } else if (scorePct >= 50) {
+        rankTitle = 'حبيبة قلبي الشاطرة الرقيقة 🌸💖';
+        rankDesc = 'نتيجة حلوة في ظل صعوبة الأسئلة.. محتاجين نراجع التواريخ في خروجة سوا!';
+        rankEmoji = '🌸';
+      } else {
+        rankTitle = 'سمسومة الكسلانة الجميلة 🙈❤️';
+        rankDesc = 'عقابك عزومة وحضن كبير من حمودي عشان تحفظي التواريخ كلها!';
+        rankEmoji = '🍓';
+      }
+
+      let breakdownHtml = answersHistory.map((item, idx) => `
+        <div class="border ${item.isCorrect ? 'border-emerald-500/30 bg-emerald-950/20 text-emerald-200' : 'border-rose-500/30 bg-rose-950/20 text-rose-200'} rounded-xl p-2.5 flex items-start gap-2.5 text-right text-xs">
+          <i data-lucide="${item.isCorrect ? 'check-circle' : 'x-circle'}" class="w-4 h-4 shrink-0 mt-0.5 ${item.isCorrect ? 'text-emerald-400' : 'text-rose-400'}"></i>
+          <div class="flex-1">
+            <div class="font-extrabold text-white mb-0.5">${item.questionTitle}</div>
+            <div class="text-slate-300">إجابتك: <strong>${item.chosenText}</strong></div>
+            ${!item.isCorrect ? `<div class="font-bold text-emerald-400 mt-0.5">الصحيح: ${item.correctText}</div>` : ''}
+          </div>
+        </div>
+      `).join('');
+
+      gameCard.innerHTML = `
+        <div class="text-5xl mb-2 animate-bounce inline-block filter drop-shadow-[0_0_15px_rgba(245,205,104,0.6)]">${rankEmoji}</div>
+        <div class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-white/5 border border-ruby-500/30 text-ruby-300 font-extrabold text-xs mb-2">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span>شهادة معلقة الحب والذكريات الأبدية 📜✨</span>
+        </div>
+
+        <h1 class="text-xl sm:text-2xl font-black bg-gradient-to-r from-white via-rose-100 to-gold-300 bg-clip-text text-transparent leading-snug mb-1">
+          نتيجة كويز الحب لسما قلبي! 🎉
+        </h1>
+        <p class="text-xs font-semibold text-slate-300 mb-4">
+          السيستم رصد إجاباتك الصعبة يا سمسومة، ودي نتيجتك الرسمية عند <strong>حمودي</strong>:
+        </p>
+
+        <!-- Radial Score Meter Card -->
+        <div class="bg-gradient-to-br from-twilight-900/90 via-twilight-850/80 to-twilight-900/90 border border-gold-500/30 rounded-3xl p-4 mb-4 text-center shadow-lg relative overflow-hidden">
+          <div class="relative w-28 h-28 mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+              <circle class="fill-none stroke-white/10 stroke-[10]" cx="60" cy="60" r="50"></circle>
+              <circle class="score-circle-fill" id="scoreCircleFill" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="absolute flex flex-col items-center justify-center">
+              <div class="text-2xl font-black text-white leading-none">${scorePct}%</div>
+              <div class="text-[11px] font-bold text-gold-300 mt-1">${userScore} / ${totalPoints} نقطة</div>
+            </div>
+          </div>
+          <div class="text-base font-black text-gold-200 mb-0.5">${rankTitle}</div>
+          <div class="text-xs font-bold text-slate-300">${rankDesc}</div>
+        </div>
+
+        <!-- Relationship Stats Grid -->
+        <div class="grid grid-cols-2 gap-2 mb-4">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 text-center shadow-xs">
+            <div class="text-base font-black text-ruby-400">3 سنين</div>
+            <div class="text-[11px] font-bold text-slate-400 mt-0.5">حب مستمر وأجمل ذكريات 💖</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 text-center shadow-xs">
+            <div class="text-sm font-black text-gold-300 dir-ltr font-mono">01/03/2024</div>
+            <div class="text-[11px] font-bold text-slate-400 mt-0.5">أول لقاء خطف قلبي 🌸</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 text-center shadow-xs">
+            <div class="text-sm font-black text-gold-300 dir-ltr font-mono">11/09/2026</div>
+            <div class="text-[11px] font-bold text-slate-400 mt-0.5">اللقاء الثاني المتجدد ✈️</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 text-center shadow-xs">
+            <div class="text-sm font-black text-gold-300 dir-ltr font-mono">17/10/2023</div>
+            <div class="text-[11px] font-bold text-slate-400 mt-0.5">أول "بحبك" نورت عمري 💍</div>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdown Box -->
+        <div class="mb-4 text-right">
+          <div class="flex items-center gap-1.5 text-xs font-extrabold text-amethyst-400 mb-2">
+            <i data-lucide="list-checks" class="w-4 h-4 text-ruby-400"></i>
+            <span>ملخص إجاباتك بالتفصيل:</span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            ${breakdownHtml}
+          </div>
+        </div>
+
+        <!-- The Special Poem for Sama (Imru' al-Qays Adapted) -->
+        <div class="bg-gradient-to-br from-twilight-900/95 via-twilight-800/90 to-twilight-900/95 border-2 border-gold-500/40 rounded-2xl p-4 mb-4 shadow-xl relative text-center">
+          <div class="text-xs font-black text-gold-400 mb-2 flex items-center justify-center gap-1">
+            <i data-lucide="feather" class="w-3.5 h-3.5 text-ruby-400"></i>
+            <span>معلقة العشق لسما قلبي (مستوحاة من امرؤ القيس) 🌸</span>
+          </div>
+          <div class="poetry-font text-base sm:text-lg font-bold text-gold-100 leading-loose text-center whitespace-pre-line">
+            "قِفَا نَحْكِ عَنْ ذِكْرَى حَبِيبٍ وَلُقْيَا،
+            بِـ <strong class="text-ruby-400">1 مَارِس</strong> ابْتَدَى النَّبْضُ يَحْيَا..
+            وَفِي <strong class="text-ruby-400">11 سِبْتَمْبِر</strong> تَجَدَّدَ هَوَانَا سَوِيَّا،
+            أَيَا <strong class="text-gold-300">سَمَا</strong> مَهْلاً.. فَحُبُّكِ فِي الوَرِيدِ رَوِيَّا.
+            3 سِنِينَ وَعُمْرِي ابْتَدَى فِي <strong class="text-ruby-400">17 أُكْتُوبِر</strong>..
+            وَقَلْبِي لِغَيْرِكِ مَا مَالَ قَطُّ وَلَا تَغَيَّر."
+          </div>
+        </div>
+
+        <!-- Sweet Closing Message in Warm Egyptian Dialect -->
+        <div class="bg-twilight-900/80 border border-ruby-500/30 rounded-2xl p-4 mb-4 text-xs font-semibold text-slate-300 leading-relaxed text-right">
+          <div class="font-black text-ruby-400 mb-1 flex items-center gap-1">
+            <i data-lucide="heart" class="w-3.5 h-3.5 fill-ruby-500 text-ruby-500"></i>
+            <span>رسالة من حمودي:</span>
+          </div>
+          "يا سَما قلبي.. قفا نبكِ قالها امرؤ القيس لما كان حزين، بس إحنا قفا نضحك ونفرح بأحلى 3 سنين جمعونا! 
+          من أول لقاء في 1 مارس، للقاء التاني في 11 سبتمبر، واعترافك اللي نور حياتي في 17 أكتوبر.. 
+          مسافات المحافظات صفر بين قلوبنا، وإنتي وحدك اللي مالية عيني ودنيتي.. بحبك للأبد يا أحلى سما في الكون!"
+          <div class="text-left font-black text-gold-300 mt-2">— بحبك للأبد، حبيبك حمودي 💍❤️</div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="flex flex-col gap-2 mt-4">
+          <button id="loveShowerBtn" class="w-full py-3 px-4 rounded-full bg-gradient-to-r from-ruby-500 via-rose-600 to-amethyst-600 text-white font-black text-xs sm:text-sm shadow-lg shadow-ruby-500/30 hover:shadow-ruby-500/50 active:scale-98 transition flex items-center justify-center gap-2 border-t border-white/30">
+            <i data-lucide="heart-handshake" class="w-4 h-4 text-gold-300"></i>
+            <span>دوسي هنا لجرعة حب وبوسات زيادة 😘💖</span>
+          </button>
+
+          <button id="restartGameBtn" class="w-full py-2.5 px-4 rounded-full bg-white/5 border border-white/15 text-slate-300 font-bold text-xs hover:bg-white/10 active:scale-98 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span>إعادة الاختبار من الأول 🔄</span>
+          </button>
+        </div>
+      `;
+
+      if (window.lucide) lucide.createIcons();
+
+      // Animate radial ring
+      setTimeout(() => {
+        const fill = document.getElementById('scoreCircleFill');
+        if (fill) {
+          const circumference = 314.16;
+          const offset = circumference - (scorePct / 100) * circumference;
+          fill.style.strokeDashoffset = offset;
+        }
+      }, 100);
+
+      // Trigger automatic email dispatch silently in background
+      sendScoreEmail({
+        score: userScore,
+        totalPoints: totalPoints,
+        percentage: scorePct,
+        rank: rankTitle,
+        answers: answersHistory
+      });
+
+      // Love Shower
+      document.getElementById('loveShowerBtn').addEventListener('click', (e) => {
+        playSuccessSound();
+        triggerConfetti(90);
+        spawnHearts(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2);
+        showToast('مليون بوسة وحضن لسمسومة قلبي وعيني! 💋🥰', '💖');
+      });
+
+      // Restart Quiz
+      document.getElementById('restartGameBtn').addEventListener('click', () => {
+        playPopSound();
+        currentStep = 0;
+        userScore = 0;
+        correctCount = 0;
+        answersHistory = [];
+        updateScoreUI();
+        renderScreen();
+      });
+    }
+
+    // Initialize Game
+    renderScreen();
+  </script>
+</body>
+</html>

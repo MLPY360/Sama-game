@@ -1,0 +1,12 @@
+{
+  "name": "sam-game",
+  "version": "2.0.0",
+  "description": "Romantic Couple Trivia Quiz Game for Sama",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^10.2.1"
+  }
+}
